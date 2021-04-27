@@ -92,7 +92,11 @@
               <select id="category" name="category" class="form-control" v-model="userr.category">
                         <option value="">Select Category</option>
                         <option value="Admin">Admin</option>
-                        <option value="Member">Member</option>
+                        <option value="Risafocalpoint">Risa focal Point</option>
+                        <option value="RisacontractManager">Risa Contract Manager</option>
+                        <option value="ExternalinstitutionUser">External Institution User</option>
+                        <option value="Legal">Legal</option>
+                        
                       </select>
                     </div>
             </div>

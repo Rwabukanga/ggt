@@ -60,6 +60,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
@@ -84,7 +85,11 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
+
+  
 }
+
+
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
@@ -106,3 +111,4 @@ if (process.env.NODE_ENV === 'production') {
     })
   ])
 }
+

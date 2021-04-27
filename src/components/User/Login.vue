@@ -9,7 +9,7 @@
            
           <div class="panel-body">
             
-      <form v-on:submit.prevent= "login">
+      <form v-on:submit.prevent="login">
         
         <label>Username</label>
         <div class="col-xs-20 col-sm-12 col-sm-offset col-md-8 col-md-offset-3">
@@ -33,75 +33,15 @@
  </div>
 <input type="checkbox" @click="myFunction()"><label>Show Password</label>
 
-   <!--  <div class="form-group position-relative">
-     <div class="col-xs-20 col-sm-12 col-sm-offset col-md-6 col-md-offset-3">
-     <label for="input2">Username</label>
-     <input type="text" class="form-control is-valid" name="username" id="username" v-model="dm.username">
-     <div class="valid-feedback feedback-icon">
-          <i class="fa fa-user"></i>
-    </div>
-     </div>
-     <div class="invalid-feedback feedback-icon">
-          <i class="fa fa-times"></i>
-     </div>
-</div> -->
+  
 
-<!-- <div class="form-group position-relative">
-    <div class="col-xs-20 col-sm-12 col-sm-offset col-md-6 col-md-offset-3">
-     <label for="input2">Password</label>
-     <input type="text" class="form-control is-valid" name="password" id="password" v-model="dm.password">
-     <div class="valid-feedback feedback-icon">
-        <i class="fa fa-unlock" aria-hidden="true"></i>
-    </div>
-     </div>
 
-     <div class="invalid-feedback feedback-icon">
-          <i class="fa fa-times"></i>
-     </div>
-</div> -->
         
-       <!--  <div class="wrapper">
-         <div class="col-xs-20 col-sm-12 col-sm-offset col-md-3 col-md-offset-3">
-         <i class="fa fa-user " aria-hidden="true"></i>
-        <input class="form-control" type="text" placeholder="Username" name="username" id="username" v-model="dm.username">
-        </div>
-        </div>
+     
         <br>
-      <div class="col-xs-20 col-sm-12 col-sm-offset col-md-3 col-md-offset-3">
-      <div class="input-container">
-        <i class="fa fa-unlock" aria-hidden="true"></i>
-        <input class="form-control" type="password" placeholder="Password" name="password" id="password" v-model="dm.password">
-        </div>
-        </div> -->
-        <br>
-             <!-- <div class="form-group row">
-             <div class="col-xs-20 col-sm-12 col-sm-offset col-md-3 col-md-offset-3">
-                <label>Username</label>
-                
-                <input name="username" type="text" class="form-control" id="username" placeholder="username" v-model="dm.username">
-                </div> -->
-                <!-- </div> -->
-                <!-- <div class="form-group row">
-                <div class="col-xs-20 col-sm-12 col-sm-offset col-md-3 col-md-offset-3">
-                <label>Password</label>
-                <input name="password" type="text" class="form-control" id="password" placeholder="password" v-model="dm.password">
-              </div>
-            </div>     -->
+            
 
-<!-- ========================================================================================================== -->
-            <!-- <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-unlock"></i></span>
-  </div>
-  <input class="form-control" type="text" placeholder="Email address">
-</div>
 
-<div class="input-group mb-3">
-  <input class="form-control" type="text" placeholder="Email address">
-  <div class="input-group-append">
-    <span class="input-group-text"><i class="fa fa-envelope-o fa-fw"></i></span>
-  </div>
-</div> -->
             <br>
 
             <button type="submit" class="btn btn-primary">Submit</button> 

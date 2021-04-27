@@ -1,50 +1,56 @@
 <template>
-    <div class="container">
-
-    <el-row>
-      
+<div class="container">
+      <div class="table-responsive py-4">
+    <table aria-describedby="table" class="table" :id="id">
+      <thead class="bg-default text-white" style="background-color: black">
+        <tr>
+          <th v-for="(column, index) in columns" scope="row" :key="index">
+            {{ column.title }}
           
-        <el-col :span="6" style="margin:10px 10px 10px 10px  ">
-          <el-input class="form-control" placeholder="search NO." v-model="filters[0].value"></el-input>
-        </el-col>
-        
-      </el-row>
+          </th>
+          <th scope="row" v-if="actions.length > 0" >Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, index) in data" :key="index">
+          <td v-for="(column, index) in columns" :key="index">
+            {{ row[column.reggs] }}
+          </td>
+          <td v-if="actions.length > 0">
+            <button v-for="(action, index) in actions" :key="index" :class="action.btnClass" @click="action.btnFn(row[action.btnParamName])"><em :class="action.iconClass"></em> {{action.btnText}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-       <data-tables  :data="data" :titles="titles" :action-col="actionCol" :filters="filters" :table-props="tableProps" layout="table">
-      <el-table-column  v-for="title in titles" :prop="title.prop" :label="title.label" :key="title.label" sortable="custom">
-      </el-table-column>
-      
-     
- <el-table-column label="Actions" v-if="actionCol"   min-width="100px" style="margin:100px 20px 20px 30px">
-        <template  slot-scope="scope">
-          <button
-            type="button"
-            :key="button.id"
-            :class="button.renderFn?(button.renderFn(scope.row)?''+button.classes:'d-none '+button.classes):button.classes"
-            @click="$emit(button.event,scope.row)"
-            v-for="button in actionCol.buttons"
-            data-toggle="tooltip"
-            :data-placement="button.tooltip.placement || 'top'"
-            :title="button.tooltip.title || ''"
-          style="margin:5px 2px 2px 5px">
-            <i :class="button.icon"></i>
-            {{button.label}}
-          </button>
-        
-          
-        </template>
-      </el-table-column>
-    </data-tables>
-    </div>
 </template>
 <script>
-export default {
-    props:[ 'data', 'titles', 'actionCol', 'filters', 'tableProps'],
 
-    data(){
-   
-    }
-}
+import $ from "jquery";
+
+/* var $ = require( "jquery" ); */
+
+export default {
+  props: ["options", "id", "actions", "data", "columns"],
+  methods: {
+    // performAction: function(action_name,param){
+    //     this.actions[action_name](param)
+    // }
+  },
+  mounted() {
+    $(`#${this.id}`).DataTable({
+      ...this.options,
+      language: {
+        paginate: {
+          previous: "<em class='fas fa-chevron-left'></em>",
+          next: "<em class='fas fa-chevron-right'></em>",
+        },
+      },
+    });
+  },
+};
 </script>
 <style scoped>
 

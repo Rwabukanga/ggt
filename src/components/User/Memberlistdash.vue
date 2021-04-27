@@ -187,7 +187,7 @@ export default {
 
      methods:{
           findreggs(){
-         axios.get('http://localhost:2021/mmb/all')
+         axios.get('http://localhost:2021/registr/all')
          .then(response =>{
              this.reggs = response.data.OBJECT;
              console.log(this.reggs);

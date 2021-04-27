@@ -64,14 +64,14 @@ export const store = new Vuex.Store({
             return username;
         }
     },
-   
+    
     mutations: {
         mutateAuth: (state,data) =>{
-
+        
             state.auth = data
         },
         mutateCredentials: (state, data) =>{
-
+    
             state.auth.credentials = data
         }
     },
@@ -96,11 +96,19 @@ export const store = new Vuex.Store({
                     response.data.OBJECT.credentials = creds;
                     context.commit('mutateAuth', response.data.OBJECT);
                        console.log(response.data.OBJECT);
-                    /* if(response.data.OBJECT.user.reg.category == "Admin"){ */
-                        router.push('/dashboardreg');
-                    // }else {
-                    //     router.push('/login');
-                    // }
+                   if(response.data.OBJECT.user.reg.category == "Admin"){ 
+                        router.push('/formsave');
+                   }else if(response.data.OBJECT.user.reg.category == "Risafocalpoint"){
+                       router.push('/dashrisafocal');
+                   }else if(response.data.OBJECT.user.reg.category == "RisacontractManager"){
+                     router.push("/dashmgr");
+                   }else if(response.data.OBJECT.user.reg.category == "ExternalinstitutionUser"){
+                     router.push("/dashinst");
+                   }else if(response.data.OBJECT.user.reg.category == "Legal"){
+                       router.push("/dashlg");
+                   }else{
+                       router.push("/usdash");
+                   }
                    
 
                 }
@@ -113,7 +121,7 @@ export const store = new Vuex.Store({
         logout: context=>{
             context.commit('mutateAuth', null);
             localStorage.clear();
-            router.push("/login");
+            router.push("/log");
         },
         signUp: (context, credentials) => {
             axios.post(context.state.backend_url + "/registr/saveuser", credentials)

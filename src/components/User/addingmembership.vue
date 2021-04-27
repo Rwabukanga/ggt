@@ -136,6 +136,18 @@
                       </select>
                     </div>
         </div>
+
+         <div class="col-xs-20 col-sm-12 col-sm-offset col-md-4 col-md-offset-3"> 
+             <div class="col-auto">
+              <label>Category</label>
+              <select class="form-control"  id="category" required  v-model="memberr.category">
+                       
+                        <option v-bind:key="category.id" v-for="category in categories"  :value='category.id'>{{category.name}}</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+
             </div>
                <button type="submit" class="btn btn-success btn-sm">Submit</button> 
 </form>
@@ -154,6 +166,8 @@ export default {
        province:0,
        districts:[],
        district:0,
+       categories:[],
+       category:0,
    
         }
     },
@@ -165,6 +179,16 @@ export default {
      .then(response =>{
          this.provinces = response.data.OBJECT;
          console.log(this.provinces);
+     }).catch(response =>{
+        //  console.error(err);
+     });
+    },
+
+    fetchcategory(){
+     axios.get("http://localhost:2021/category/all")
+     .then(response =>{
+         this.categories = response.data.OBJECT;
+         console.log(this.categories);
      }).catch(response =>{
         //  console.error(err);
      });
@@ -181,7 +205,7 @@ export default {
      });
     },
         addmember(b){
-            if(!this.memberr.firstname || !this.memberr.lastname || !this.memberr.email || !this.memberr.email || !this.memberr.dob || !this.memberr.phonenumber || !this.memberr.idnumber || !this.memberr.gender|| !this.memberr.district){
+            if(!this.memberr.firstname || !this.memberr.lastname || !this.memberr.email || !this.memberr.email || !this.memberr.dob || !this.memberr.phonenumber || !this.memberr.idnumber || !this.memberr.gender|| !this.memberr.district|| !this.memberr.category){
                alert = "fill all user";
             }else{
                 let newmember ={
@@ -192,7 +216,8 @@ export default {
                     phonenumber: this.memberr.phonenumber,
                     idnumber: this.memberr.idnumber,
                     gender: this.memberr.gender,
-                    district: this.memberr.district
+                    district: this.memberr.district,
+                    category: this.memberr.category
                 }
 
                 axios.post('http://localhost:2021/mmb/savee', newmember)
@@ -216,6 +241,7 @@ export default {
     created:function(){
       
         this.fetchProvince();
+        this.fetchcategory();
     }
 }
 </script>

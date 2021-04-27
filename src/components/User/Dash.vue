@@ -14,7 +14,7 @@
              <!--    <a class="nav-link" href="#">List</a> -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">
+              <a class="nav-link" href="/log">
                 <i class="fas fa-sign-in-alt"></i>
                  <span class="glyphicon glyphicon-log-out">Login</span> 
               </a>
@@ -26,7 +26,7 @@
  <!--  <a href="#services"><i class="fa fa-fw fa-wrench"></i>Services</a> -->
   <a href="/reglist"><i class="fa fa-fw fa-user"></i>Registration List</a>
   <a href="/memberlist"><i class="fa fa-fw fa-user"></i>List of Members</a>
-  <a href="/contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="/dashboardreg"><i class="fa fa-fw fa-envelope"></i> Registration</a>
 </div> 
 </nav>
 

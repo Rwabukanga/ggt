@@ -10,13 +10,15 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
+    "jquery": "^3.5.1",
     "nprogress": "^0.2.0",
     "secure-ls": "^1.2.6",
     "vue": "^2.5.11",
     "vue-data-tables": "^3.4.5",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.4.3",
+    "vue-slimscroll": "^1.0.1",
     "vue-swal": "^1.0.0",
     "vue-sweetalert2": "^3.0.6",
     "vuex": "^3.5.1",
@@ -28,6 +30,7 @@
     "not ie <= 8"
   ],
   "devDependencies": {
+    "@types/jquery": "^3.5.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
